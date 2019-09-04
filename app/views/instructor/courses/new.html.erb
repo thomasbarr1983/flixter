@@ -1,4 +1,36 @@
+<!--Navbar-->
+<div class="booyah-box">
+  <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <%= link_to 'Flixter', root_path, class: 'navbar-brand' %>    
+    <div class="collapse navbar-collapse" id="navbarText">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <%= link_to 'See All Courses', courses_path, class: "nav-link" %>
+        </li>
+      </ul>
+      <ul class="navbar-nav">
+      <% if user_signed_in? %>
+        <li class="nav-item">
+          <%= link_to 'Sign out', destroy_user_session_path, method: :delete, class: 'nav-link' %>
+        </li>
+      <% else %>
+        <li class="nav-item">
+          <%= link_to 'Sign in', new_user_session_path, class: 'nav-link' %>
+        </li>
+        <li class="nav-item">
+          <%= link_to 'Sign up', new_user_registration_path, class: 'nav-link' %>
+        </li>
+      <% end %>
+    </ul>
+    </div>
+  </nav>
+</div>
+
 <br />
+
 <div class="booyah-box col-10 offset-1">
   <h1>Add a new course</h1>
   <%= simple_form_for @course, url: instructor_courses_path do |f| %>
