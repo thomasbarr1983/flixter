@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
+  resource :dashboard, only: [:show]
   root 'static_pages#index'
   resources :courses, only: [:index, :show] do
     resources :enrollments, only: :create
@@ -16,9 +17,3 @@ Rails.application.routes.draw do
     end
   end
 end
-
-
-#update config/routes.rb
-#resources :row_order_position, only: [:update]
-#resources :row_order_position, only: [] do
-#resources :sections, only: [:update]
