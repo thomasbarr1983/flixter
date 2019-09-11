@@ -30,14 +30,7 @@ class Instructor::SectionsController < ApplicationController
 
   def section_params
     params.require(:section).permit(:title)
-    include RankedModel
-    ranks :row_order, with_same: :with_same => :course_id
+    #include RankedModel
+    #ranks :row_order, with_same: :with_same => :course_id
   end
 end
-
-
-<br/>
-<ul>
-  <li> </li>
-  <li> </li>
-</ul>
