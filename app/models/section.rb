@@ -11,3 +11,4 @@ class Section < ApplicationRecord
   end
 
 end
+
