@@ -1,10 +1,12 @@
 <script>
-  $(function(){
-    $('.new-lesson-button').click(function( event ) {
-      var lessonURL =  $(event.target).data('lesson-url');
-      $('#newLessonForm').attr('action', lessonUrl);
+    $(function(){
+   
+      $('.new-lesson-button').click(function( event ) {
+      var lessonURL=  $(event.target).data('lesson-url');
+      $('#newLessonForm').attr('action', lessonURL);
     });
-      $(function() {
+  
+    $('.sections').sortable({
       update: function( event, ui ) {
         $.ajax({
           type: 'PUT',
