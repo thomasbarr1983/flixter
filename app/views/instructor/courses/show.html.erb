@@ -1,10 +1,10 @@
 <script>
   $(function(){
     $('.new-lesson-button').click(function( event ) {
-      var lessonUrl = ( $( event.target).data('lesson-url') );
+      var lessonURL =  $(event.target).data('lesson-url');
       $('#newLessonForm').attr('action', lessonUrl);
     });
-    $('.sections').sortable({
+      $(function() {
       update: function( event, ui ) {
         $.ajax({
           type: 'PUT',
@@ -49,7 +49,7 @@
 
   <ul class="sections">
     <% current_course.sections.rank(:row_order).each do |section| %>
-      <li data-update-url="<%= instructor_section_path(section) %>" class="section-li">
+      <li data-update-url="<%= instructor_section_path(section) %>", class="section-li">
         <div class="header float-left">
           <span class="fa fa-ellipsis-v"></span>
           <%= section.title %>
